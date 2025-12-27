@@ -17,8 +17,8 @@
 #OpenClash
 #rm -rf feeds/luci/applications/luci-app-openclash
 #git clone -b master --single-branch --filter=blob:none https://github.com/vernesong/OpenClash.git feeds/luci/applications/luci-app-openclash
-#AdguardHome
-#git clone https://github.com/rufengsuixing/luci-app-adguardhome package/luci-app-adguardhome
+AdguardHome
+git clone https://github.com/rufengsuixing/luci-app-adguardhome package/luci-app-adguardhome
 #Mihomo
 #git clone -b main --single-branch --filter=blob:none https://github.com/nikkinikki-org/OpenWrt-nikki
 #mv OpenWrt-nikki/luci-app-nikki package/
@@ -85,16 +85,16 @@ chmod 0644 files/etc/sysupgrade.conf
 #mv /tmp/clash files/etc/openclash/core/clash_meta
 #chmod 0755 files/etc/openclash/core/clash_meta
 
-#将AdGuardHome核心文件编译进目录
-#curl -s https://api.github.com/repos/AdguardTeam/AdGuardHome/releases/latest \
-#| grep "browser_download_url.*AdGuardHome_linux_amd64.tar.gz" \
-#| cut -d : -f 2,3 \
-#| tr -d \" \
-#| xargs curl -L -o /tmp/AdGuardHome_linux_amd64.tar.gz && \
-#tar -xzvf /tmp/AdGuardHome_linux_amd64.tar.gz -C /tmp/ --strip-components=1 && \
-#mkdir -p files/usr/bin/AdGuardHome && \
-#mv /tmp/AdGuardHome/AdGuardHome files/usr/bin/AdGuardHome/
-#chmod 0755 files/usr/bin/AdGuardHome/AdGuardHome
+将AdGuardHome核心文件编译进目录
+curl -s https://api.github.com/repos/AdguardTeam/AdGuardHome/releases/latest \
+| grep "browser_download_url.*AdGuardHome_linux_amd64.tar.gz" \
+| cut -d : -f 2,3 \
+| tr -d \" \
+| xargs curl -L -o /tmp/AdGuardHome_linux_amd64.tar.gz && \
+tar -xzvf /tmp/AdGuardHome_linux_amd64.tar.gz -C /tmp/ --strip-components=1 && \
+mkdir -p files/usr/bin/AdGuardHome && \
+mv /tmp/AdGuardHome/AdGuardHome files/usr/bin/AdGuardHome/
+chmod 0755 files/usr/bin/AdGuardHome/AdGuardHome
 
 # 修改固件MD5值
 # 生成VerMagic文件
